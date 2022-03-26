@@ -1,0 +1,250 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Debian 安装deb安装包注意事项 | Gridea</title>
+<link rel="shortcut icon" href="https://izumi-sora.github.io/favicon.ico?v=1648292949339">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://izumi-sora.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Debian 安装deb安装包注意事项 | Gridea - Atom Feed" href="https://izumi-sora.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="1.不要dpkg安装
+1.尽量apt安装，
+1.如果缺少依赖也能正常运行，要明白此软件随时可能爆炸（虽然我没爆过）
+讲解deb软件包的文章
+https://juejin.cn/post/7029284097939734535
+内容
+Linu..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://izumi-sora.github.io">
+  <img class="avatar" src="https://izumi-sora.github.io/images/avatar.png?v=1648292949339" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Debian 安装deb安装包注意事项
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-03-04
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>1.不要dpkg安装<br>
+1.尽量apt安装，<br>
+1.如果缺少依赖也能正常运行，要明白此软件随时可能爆炸（虽然我没爆过）</p>
+<p>讲解deb软件包的文章<br>
+https://juejin.cn/post/7029284097939734535<br>
+内容</p>
+<p>Linux制作deb格式安装包教程</p>
+<p>我们通常在使用Debian系的Linux系统时，常常会遇到一些deb格式安装包。我们也知道，使用dpkg命令即可安装。</p>
+<p>当然，也会下载到一些软件是压缩包，就没那么方便了。我们能不能把它自己打包成deb安装包呢？当然是可以的。</p>
+<p>其实，制作一个deb安装包是个很简单的事情。<br>
+1，认识deb安装包结构</p>
+<p>在制作安装包之前，我们认识一下deb包的内容：</p>
+<!-- more -->
+<p><code>image</code>.png</p>
+<p>这是我要打包的内容，可见除了DEBIAN文件夹，其余都是应用程序文件，这里其余部分的目录模拟了安装目录（看起来和安装完成后根目录里面对应内容结构一致），这是因为deb安装包安装就是把内容释放到了根目录/下。</p>
+<p>DEBIAN文件夹中必须有control文件，表示安装包基本信息。</p>
+<p>除此之外，其中还可以有：</p>
+<pre><code>preinst 软件安装之前会执行的脚本
+postinst 软件安装完成后执行的脚本
+prerm 软件卸载前会执行的脚本
+postrm 软件卸载后会执行的脚本
+</code></pre>
+<p>这四个脚本非必须，如果有，这四个脚本文件必须要有可执行权限。<br>
+2，开始制作安装包</p>
+<p>今天下载了typora，但是是压缩文件格式的，我们就以制作typora的安装包为例开始。<br>
+(1) 创建一个目录存放所有文件</p>
+<p>我创建了一个名为pack的文件夹，位于/home/maiqu/Downloads/pack，放置安装包内容和配置。下文也以此为例。<br>
+(2) 创建DEBIAN文件夹并编写control文件</p>
+<p>我们在pack文件夹中创建DEBIAN文件夹，并在里面新建control文件，并编辑control文件。</p>
+<p>我这里control内容如下：</p>
+<p>Package: typora<br>
+Version: 13.6.1<br>
+Section: utils<br>
+Priority: optional<br>
+Architecture: amd64<br>
+Installed-Size: 218600<br>
+Maintainer: swsk33<a href="mailto:example@163.com">example@163.com</a><br>
+Provides: typora<br>
+Description: 自己打包的Typora安装包。<br>
+复制代码</p>
+<p>上述字段意义如下：</p>
+<pre><code>Package 包名
+Version 版本号
+Section 软件的类别，可以是utils、net、mail、text、devel等等
+Priority 软件对于系统的重要程度，如required、standard、 optional、extra等等
+Architecture 架构，32位软件填写i386，64位软件填写amd64，如果是既能在32位系统运行又能在64为系统运行可以填写all
+Installed-Size 安装后大小，单位为kb
+Maintainer 维护者，为维护者名&lt;邮箱&gt;的形式
+Provides 供应者
+Description 描述
+</code></pre>
+<p>上面的字段是必须字段或者常用字段，除此之外，control文件还可以有以下字段，以下字段非必须，按需加入：</p>
+<pre><code>Essential 申明是否是系统最基本的软件包，值为yes或者no，如果是的话，这就表明该软件是维持系统稳定和正常运行的软件包，不允许任何形式的卸载
+Depends 软件所依赖的其他软件包和库。如果是依赖多个软件包，彼此之间采用英文逗号隔开（例如该值为libc6, default-jre，说明该软件包依赖于libc6和default-jre这两个软件包，缺一不可）
+Pre-Depends 软件安装前必须安装、配置依赖性的软件包和库
+Recommends 这个字段表明推荐的安装的其他软件包
+Suggests 建议安装的其他软件包
+</code></pre>
+<p>注意，control文件最末尾必须保留一个空行，否则打包会报错。<br>
+(3) 将待打包内容放进来</p>
+<p>上面我们知道了，其余内容即为被打包的软件内容，会被直接释放到根目录。那么我们这里也需要保持目录结构。</p>
+<p>例如我想让typora安装到/opt文件夹中，那么我们这里就在pack文件夹中创建opt文件夹，将typora文件夹放进这个opt文件夹：</p>
+<p>image.png</p>
+<p>我们知道了除了DEBIAN文件夹，其它内容都会被直接放到根目录，那么这时我们就要在这里模拟出安装目录，把应用程序文件进行一个组织，以让它安装到我们想要的位置。<br>
+(4) 快捷方式</p>
+<p>之前写了个博客讲解Linux创建快捷方式的方法，这里就不再赘述Linux快捷方式文件怎么写了，直接参考这个博客即可：链接</p>
+<p>当然，我们知道快捷方式文件都位于/usr/share/applications目录下，因此这里我们需要在我们的pack文件夹中建立起/usr/share/applications，在里面新建一个desktop文件表示快捷方式。</p>
+<p>不过需要注意的是，快捷方式的可执行文件、图标、运行目录指向必须对应为这个安装包安装完成后我们的应用程序所在位置，如下图：</p>
+<p>image.png<br>
+3，打包</p>
+<p>刚刚完成了安装包配置文件编写，现在就可以打包了。使用dpkg命令打包：</p>
+<p>dpkg -b &quot;待打包目录&quot; &quot;生成deb安装包目录&quot;<br>
+复制代码</p>
+<p>我的待打包内容都在/home/maiqu/Downloads/pack文件夹下，那么我执行命令：</p>
+<p>cd /home/maiqu/Downloads<br>
+dpkg -b &quot;pack&quot; &quot;Typora-linux.deb&quot;<br>
+复制代码</p>
+<p>等待安装包构建完成，然后我们就可以使用dpkg -i命令安装它了！</p>
+<p>image.png</p>
+<p>如果要卸载，还是使用apt remove命令即可，包名就是上面control文件中Package字段的值。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://izumi-sora.github.io/post/debian-11-sourceslist/">
+              <h3 class="post-title">
+                debian 11 sources.list
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://izumi-sora.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
