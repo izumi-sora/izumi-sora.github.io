@@ -2,18 +2,21 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>又用回ubuntu了， | Gridea</title>
+<title>gridea 在linux上安装缺少依赖libappindicator3-1解决方法  | Gridea</title>
 <link rel="shortcut icon" href="https://izumi-sora.github.io/favicon.ico?v=1648362464062">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://izumi-sora.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="又用回ubuntu了， | Gridea - Atom Feed" href="https://izumi-sora.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="gridea 在linux上安装缺少依赖libappindicator3-1解决方法  | Gridea - Atom Feed" href="https://izumi-sora.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="之前用debian很多东西安装起来很麻烦，没办法，还是ubuntu好用一点，毕竟用的人比较多，生态更好一点，之前从小网站下载的deb包，debian运行报错，ubuntu就可以正常运行，搞不懂，
-" />
-    <meta name="keywords" content="ubuntu,debian,linux" />
+    <meta name="description" content="环境：debian 11， KDE桌面
+原因：缺少必需依赖，bullseye中没有此依赖
+解决方法：
+1.浏览器搜索此依赖名称，寻找该依赖所在版本结果为
+https://packages.debian.org/buster/amd64/li..." />
+    <meta name="keywords" content="ubuntu,debian,linux,Gridea" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -75,11 +78,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              又用回ubuntu了，
+              gridea 在linux上安装缺少依赖libappindicator3-1解决方法 
             </h2>
             <div class="post-info">
               <span>
-                2022-03-13
+                2022-03-26
               </span>
               <span>
                 1 min read
@@ -97,11 +100,30 @@
                   # linux
                 </a>
               
+                <a href="https://izumi-sora.github.io/tag/MtPLjWhR5/" class="post-tag">
+                  # Gridea
+                </a>
+              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>之前用debian很多东西安装起来很麻烦，没办法，还是ubuntu好用一点，毕竟用的人比较多，生态更好一点，之前从小网站下载的deb包，debian运行报错，ubuntu就可以正常运行，搞不懂，</p>
+                <p>环境：debian 11， KDE桌面<br>
+原因：缺少必需依赖，bullseye中没有此依赖<br>
+解决方法：<br>
+1.浏览器搜索此依赖名称，寻找该依赖所在版本结果为<br>
+https://packages.debian.org/buster/amd64/libappindicator3-1/download<br>
+2.发现依赖所在版本buster，将deb http://ftp.de.debian.org/debian buster main 加入/etc/apt/sources.list<br>
+<img src="https://izumi-sora.github.io/post-images/1648361835611.png" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="1"><img src="https://izumi-sora.github.io/post-images/1648361841991.png" alt="" loading="lazy"></figure>
+<p>3.更个新，安装</p>
+<pre><code>   sudo apt update 
+   sudo apt upgrade -y
+   sudo apt install &quot;gridea安装包所在位置&quot;
+</code></pre>
+<p><s>用ubuntu20.04，解决所有烦恼</s></p>
+<p>Ubuntu 20.04.4 LTS</p>
+<p>下载适用于台式机和笔记本电脑的最新 LTS 版本。  LTS 代表长期支持——这意味着在 2025 年 4 月之前的五年内，有保证的免费安全和维护更新。</p>
 
               </div>
               <div class="toc-container">
@@ -114,9 +136,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://izumi-sora.github.io/post/debian-an-zhuang-deb-an-zhuang-bao-zhu-yi-shi-xiang/">
+            <a href="https://izumi-sora.github.io/post/linux-zhuo-mian-yao-zhu-yi-bei-fen-de-ge-ren-zi-liao/">
               <h3 class="post-title">
-                Debian 安装deb安装包注意事项
+                linux桌面要注意备份的个人资料
               </h3>
             </a>
           </div>

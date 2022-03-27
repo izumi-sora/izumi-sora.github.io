@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://izumi-sora.github.io</id>
     <title>Gridea</title>
-    <updated>2022-03-26T12:17:19.764Z</updated>
+    <updated>2022-03-27T06:27:52.707Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://izumi-sora.github.io"/>
     <link rel="self" href="https://izumi-sora.github.io/atom.xml"/>
@@ -10,6 +10,30 @@
     <logo>https://izumi-sora.github.io/images/avatar.png</logo>
     <icon>https://izumi-sora.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[gridea 在linux上安装缺少依赖libappindicator3-1解决方法 ]]></title>
+        <id>https://izumi-sora.github.io/post/asdasdsad/</id>
+        <link href="https://izumi-sora.github.io/post/asdasdsad/">
+        </link>
+        <updated>2022-03-26T12:33:18.000Z</updated>
+        <content type="html"><![CDATA[<p>环境：debian 11， KDE桌面<br>
+原因：缺少必需依赖，bullseye中没有此依赖<br>
+解决方法：<br>
+1.浏览器搜索此依赖名称，寻找该依赖所在版本结果为<br>
+https://packages.debian.org/buster/amd64/libappindicator3-1/download<br>
+2.发现依赖所在版本buster，将deb http://ftp.de.debian.org/debian buster main 加入/etc/apt/sources.list<br>
+<img src="https://izumi-sora.github.io/post-images/1648361835611.png" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="1"><img src="https://izumi-sora.github.io/post-images/1648361841991.png" alt="" loading="lazy"></figure>
+<p>3.更个新，安装</p>
+<pre><code>   sudo apt update 
+   sudo apt upgrade -y
+   sudo apt install &quot;gridea安装包所在位置&quot;
+</code></pre>
+<p><s>用ubuntu20.04，解决所有烦恼</s></p>
+<p>Ubuntu 20.04.4 LTS</p>
+<p>下载适用于台式机和笔记本电脑的最新 LTS 版本。  LTS 代表长期支持——这意味着在 2025 年 4 月之前的五年内，有保证的免费安全和维护更新。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[linux桌面要注意备份的个人资料]]></title>
         <id>https://izumi-sora.github.io/post/linux-zhuo-mian-yao-zhu-yi-bei-fen-de-ge-ren-zi-liao/</id>
@@ -137,10 +161,18 @@ dpkg -b &quot;pack&quot; &quot;Typora-linux.deb&quot;<br>
         <link href="https://izumi-sora.github.io/post/debian-11-sourceslist/">
         </link>
         <updated>2022-03-03T00:02:11.000Z</updated>
+        <summary type="html"><![CDATA[<p>deb http://deb.debian.org/debian bullseye main contrib non-free<br>
+deb http://deb.debian.org/debian bullseye-updates main contrib non-free<br>
+deb http://deb.debian.org/debian bullseye-backports main contrib non-free<br>
+deb http://security.debian.org/debian-security/ bullseye-security main contrib non-free</p>
+]]></summary>
         <content type="html"><![CDATA[<p>deb http://deb.debian.org/debian bullseye main contrib non-free<br>
 deb http://deb.debian.org/debian bullseye-updates main contrib non-free<br>
 deb http://deb.debian.org/debian bullseye-backports main contrib non-free<br>
 deb http://security.debian.org/debian-security/ bullseye-security main contrib non-free</p>
+<!-- more -->
+<p>无用，只需要一个就够了其他的浪费<br>
+deb http://deb.debian.org/debian bullseye main contrib non-free</p>
 ]]></content>
     </entry>
     <entry>
@@ -166,8 +198,14 @@ deb http://security.debian.org/debian-security/ bullseye-security main contrib n
         <link href="https://izumi-sora.github.io/post/linux-zen-me-an-zhuang-gridea/">
         </link>
         <updated>2022-03-02T12:41:48.000Z</updated>
+        <summary type="html"><![CDATA[<p>真的不知道之前gridea是怎么安装的，今天要重新安装gridea，结果发现apt，aptitde和右键通过图形界面都不能安装，幸好解压包之后发现data文件内的文件和linux根目录下的opt和usr文件一样，还说什么呢？直接复制粘贴，完事<br>
+之前用dpkg安装虽然能安装上，但是如果执行 sudo apt --fix-broken install ，安装的文件就会被删除，但可以保留配置信息，所以如果担心复制粘贴导致缺少某些文件，可以先dpkg安装在卸载，然后手动安装</p>
+]]></summary>
         <content type="html"><![CDATA[<p>真的不知道之前gridea是怎么安装的，今天要重新安装gridea，结果发现apt，aptitde和右键通过图形界面都不能安装，幸好解压包之后发现data文件内的文件和linux根目录下的opt和usr文件一样，还说什么呢？直接复制粘贴，完事<br>
 之前用dpkg安装虽然能安装上，但是如果执行 sudo apt --fix-broken install ，安装的文件就会被删除，但可以保留配置信息，所以如果担心复制粘贴导致缺少某些文件，可以先dpkg安装在卸载，然后手动安装</p>
+<!-- more -->
+<!-- more -->
+<pre><code>ubuntu20.04直接安装</code></pre>
 ]]></content>
     </entry>
     <entry>
