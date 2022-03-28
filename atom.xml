@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://izumi-sora.github.io</id>
     <title>张凯的记事本</title>
-    <updated>2022-03-27T06:40:50.803Z</updated>
+    <updated>2022-03-28T06:19:38.603Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://izumi-sora.github.io"/>
     <link rel="self" href="https://izumi-sora.github.io/atom.xml"/>
@@ -10,6 +10,63 @@
     <logo>https://izumi-sora.github.io/images/avatar.png</logo>
     <icon>https://izumi-sora.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 张凯的记事本</rights>
+    <entry>
+        <title type="html"><![CDATA[我在ubuntu20.04上推荐安装的软件列表]]></title>
+        <id>https://izumi-sora.github.io/post/wo-zai-ubuntu-shang-tui-jian-an-zhuang-de-ruan-jian-lie-biao/</id>
+        <link href="https://izumi-sora.github.io/post/wo-zai-ubuntu-shang-tui-jian-an-zhuang-de-ruan-jian-lie-biao/">
+        </link>
+        <updated>2022-03-28T05:41:42.000Z</updated>
+        <content type="html"><![CDATA[<p>实际上是我自己的软件备忘录<br>
+sudo apt install '/media/izumi/Hard Disk/Programs/deb/gridea_0.9.2_amd64.deb'<br>
+sudo apt install '/media/izumi/Hard Disk/Programs/deb/wps-office_11.1.0.10920.XA_amd64.deb'</p>
+<p>sudo apt install timeshift       #给容易崩的系统恢复<br>
+sudo apt install goldendict     #字典<br>
+sudo apt install vim                #方便但不怎么好用的文本编辑器<br>
+sudo apt install net-tools        #网络工具，查ip<br>
+sudo apt install openssh-server     #远程控制<br>
+sudo apt install gnome-books         #看书，没安装成功<br>
+sudo apt install vlc                       #视频播放器<br>
+sudo apt install ffmpeg                   #视频格式转换<br>
+sudo apt install adb fastboot             #手机刷机工具<br>
+sudo apt install aria2                     #下载器<br>
+sudo apt install adb fastboot aria2 vim timeshift goldendict net-tools vlc ffmpeg<br>
+sudo snap install pycharm   # python学习软件，<br>
+sudo apt install ./fault_milestone_one_gog_2_24013.sh # linuxgame.cn<br>
+sudo apt install ibus-libpinyin     #中文输入法<br>
+sudo apt install kchmviewer      #阅读器，可以看epub<br>
+sudo apt install libreoffice-help-zh-cn    #给自带office添加中文语言包<br>
+sudo snap install chromium     #另一种浏览器<br>
+sudo apt install aptitude        #用来解决apt依赖问题<br>
+sudo apt install pidgin         #聊天软件，还没试<br>
+sudo apt install nmap         #端口扫面，<br>
+sudo apt install unrar p7zip    #解压软件<br>
+sudo cp -r zh_CN /opt/kingsoft/wps-office/office6/mui/   #给wps添加中文包<br>
+sudo apt install uget      #下载器图形界面<br>
+sudo apt install gnome-shell-extension-gsconnect   #和手机同步剪切板<br>
+sudo apt install gnome-tweak-tool    #？？<br>
+sudo apt install gnome-tweaks   #管理扩展之类的<br>
+gnome-extensions enable gsconnect@andyholmes.github.io<br>
+gnome-extensions prefs gsconnect@andyholmes.github.io</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ubuntu和手机剪切板同步]]></title>
+        <id>https://izumi-sora.github.io/post/ubuntu-he-shou-ji-jian-qie-ban-tong-bu/</id>
+        <link href="https://izumi-sora.github.io/post/ubuntu-he-shou-ji-jian-qie-ban-tong-bu/">
+        </link>
+        <updated>2022-03-28T05:40:27.000Z</updated>
+        <content type="html"><![CDATA[<p>1.安装软件</p>
+<pre><code>sudo apt install gnome-shell-extension-gsconnect 
+</code></pre>
+<p>2.打开图形界面设置</p>
+<pre><code>gnome-extensions enable gsconnect@andyholmes.github.io 
+gnome-extensions prefs gsconnect@andyholmes.github.io   
+</code></pre>
+<p><img src="https://izumi-sora.github.io/post-images/1648448325822.png" alt="" loading="lazy"><br>
+<img src="https://izumi-sora.github.io/post-images/1648448335189.png" alt="" loading="lazy"><br>
+<img src="https://izumi-sora.github.io/post-images/1648448342856.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[gridea 在linux上安装缺少依赖libappindicator3-1解决方法 ]]></title>
         <id>https://izumi-sora.github.io/post/asdasdsad/</id>
@@ -29,7 +86,8 @@ https://packages.debian.org/buster/amd64/libappindicator3-1/download<br>
    sudo apt upgrade -y
    sudo apt install &quot;gridea安装包所在位置&quot;
 </code></pre>
-<p><s>用ubuntu20.04，解决所有烦恼</s></p>
+<p>4.刚刚了解到这个方法也不安全，<br>
+<s>用ubuntu20.04，解决所有烦恼</s></p>
 <p>Ubuntu 20.04.4 LTS</p>
 <p>下载适用于台式机和笔记本电脑的最新 LTS 版本。  LTS 代表长期支持——这意味着在 2025 年 4 月之前的五年内，有保证的免费安全和维护更新。</p>
 ]]></content>
