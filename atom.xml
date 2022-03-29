@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://izumi-sora.github.io</id>
     <title>izumi的记事本</title>
-    <updated>2022-03-29T15:51:33.770Z</updated>
+    <updated>2022-03-29T15:53:19.969Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://izumi-sora.github.io"/>
     <link rel="self" href="https://izumi-sora.github.io/atom.xml"/>
@@ -16,6 +16,15 @@
         <link href="https://izumi-sora.github.io/post/zen-me-ba-zi-ji-de-linux-bi-ji-ben-bian-cheng-fu-wu-qi-ju-yu-wang-nei/">
         </link>
         <updated>2022-03-29T15:23:36.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近想一边在床上玩手机，一边控制自己的笔记本，所以就想把笔记本当作服务器，查了一下，果然可以</p>
+<p>1.linux上安装openssh-server</p>
+<pre><code>sudo apt install openssh-sever
+</code></pre>
+<p>如果失败了，请安装aptitdue</p>
+<pre><code>sudo apt install aptitude
+</code></pre>
+<p>然后根据提示卸载冲突的依赖并安装openssh-server</p>
+]]></summary>
         <content type="html"><![CDATA[<p>最近想一边在床上玩手机，一边控制自己的笔记本，所以就想把笔记本当作服务器，查了一下，果然可以</p>
 <p>1.linux上安装openssh-server</p>
 <pre><code>sudo apt install openssh-sever
@@ -23,8 +32,9 @@
 <p>如果失败了，请安装aptitdue</p>
 <pre><code>sudo apt install aptitude
 </code></pre>
-<p>然后根据提示卸载冲突的依赖并安装openssh-server<br>
-2.手机上安装termux，<br>
+<p>然后根据提示卸载冲突的依赖并安装openssh-server</p>
+<!-- more -->
+<p>2.手机上安装termux，<br>
 这里是下载链接 https://f-droid.org/en/packages/com.termux/<br>
 安装完成后。<br>
 打开termux，先根据提示更新软件</p>
