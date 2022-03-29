@@ -2,21 +2,21 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ubuntu和手机剪切板同步 | izumi的记事本</title>
+<title>怎么把自己的linux笔记本变成服务器（局域网内） | izumi的记事本</title>
 <link rel="shortcut icon" href="https://izumi-sora.github.io/favicon.ico?v=1648569088505">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://izumi-sora.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="ubuntu和手机剪切板同步 | izumi的记事本 - Atom Feed" href="https://izumi-sora.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="怎么把自己的linux笔记本变成服务器（局域网内） | izumi的记事本 - Atom Feed" href="https://izumi-sora.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="1.安装软件,手机安装软件KDE Connect
-sudo apt install gnome-shell-extension-gsconnect 
+    <meta name="description" content="最近想一边在床上玩手机，一边控制自己的笔记本，所以就想把笔记本当作服务器，查了一下，果然可以
+1.linux上安装openssh-server
+sudo apt install openssh-sever
 
-2.打开图形界面设置
-gnome-extensions enable gsconnect..." />
-    <meta name="keywords" content="ubuntu" />
+如果失败了，请安装aptitdu..." />
+    <meta name="keywords" content="ubuntu,linux" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -78,35 +78,58 @@ gnome-extensions enable gsconnect..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              ubuntu和手机剪切板同步
+              怎么把自己的linux笔记本变成服务器（局域网内）
             </h2>
             <div class="post-info">
               <span>
-                2022-03-28
+                2022-03-29
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
               
                 <a href="https://izumi-sora.github.io/tag/HdvFJPvef/" class="post-tag">
                   # ubuntu
                 </a>
               
+                <a href="https://izumi-sora.github.io/tag/Lnr1_ehn6/" class="post-tag">
+                  # linux
+                </a>
+              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>1.安装软件,手机安装软件KDE Connect</p>
-<pre><code>sudo apt install gnome-shell-extension-gsconnect 
+                <p>最近想一边在床上玩手机，一边控制自己的笔记本，所以就想把笔记本当作服务器，查了一下，果然可以</p>
+<p>1.linux上安装openssh-server</p>
+<pre><code>sudo apt install openssh-sever
 </code></pre>
-<p>2.打开图形界面设置</p>
-<pre><code>gnome-extensions enable gsconnect@andyholmes.github.io 
-gnome-extensions prefs gsconnect@andyholmes.github.io   
+<p>如果失败了，请安装aptitdue</p>
+<pre><code>sudo apt install aptitude
 </code></pre>
-<p>注意：需要在同一局域网下连接<br>
-<img src="https://izumi-sora.github.io/post-images/1648448325822.png" alt="" loading="lazy"><br>
-<img src="https://izumi-sora.github.io/post-images/1648448335189.png" alt="" loading="lazy"><br>
-<img src="https://izumi-sora.github.io/post-images/1648448342856.png" alt="" loading="lazy"></p>
+<p>然后根据提示卸载冲突的依赖并安装openssh-server<br>
+2.手机上安装termux，<br>
+这里是下载链接 https://f-droid.org/en/packages/com.termux/<br>
+安装完成后。<br>
+打开termux，先根据提示更新软件</p>
+<pre><code>pkg upgrade
+</code></pre>
+<p>安装openssh</p>
+<pre><code>pkg install openssh
+</code></pre>
+<p>3.进行远程控制<br>
+ssh的使用方法是</p>
+<pre><code>ssh 用户名@ip地址
+</code></pre>
+<p>不会有人不知道自己的用户名把，打开终端@前面的就ifconfig是你的用户名，<br>
+当然，你也可以直接用root这个管理员名字，做用户名，好处是不用动不动就要输入sudo</p>
+<p>ip地址，可以在ubuntu终端上输入</p>
+<pre><code>ifconfig | grep inet
+</code></pre>
+<p>inet 后面的是ipv4地址 （请不要输入127.0.0.1，那是本地地址）<br>
+inet6 后面的是ipv6地址（请不要输入::1，那是本地地址）</p>
+<p>然后怎么做知道了吗？输入之后，按完确认建，会要求你输入yes，然后是你linux的密码，<br>
+登陆成功，撒花💐</p>
 
               </div>
               <div class="toc-container">
@@ -119,9 +142,9 @@ gnome-extensions prefs gsconnect@andyholmes.github.io
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://izumi-sora.github.io/post/asdasdsad/">
+            <a href="https://izumi-sora.github.io/post/wo-zai-ubuntu-shang-tui-jian-an-zhuang-de-ruan-jian-lie-biao/">
               <h3 class="post-title">
-                gridea 在linux上安装缺少依赖libappindicator3-1解决方法 
+                我在ubuntu20.04上推荐安装的软件列表
               </h3>
             </a>
           </div>

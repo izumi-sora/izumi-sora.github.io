@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://izumi-sora.github.io</id>
-    <title>张凯的记事本</title>
-    <updated>2022-03-28T06:19:38.603Z</updated>
+    <title>izumi的记事本</title>
+    <updated>2022-03-29T15:51:33.770Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://izumi-sora.github.io"/>
     <link rel="self" href="https://izumi-sora.github.io/atom.xml"/>
     <subtitle>经历了很多，却记得很少，时间冲刷着沙滩</subtitle>
     <logo>https://izumi-sora.github.io/images/avatar.png</logo>
     <icon>https://izumi-sora.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2022, 张凯的记事本</rights>
+    <rights>All rights reserved 2022, izumi的记事本</rights>
+    <entry>
+        <title type="html"><![CDATA[怎么把自己的linux笔记本变成服务器（局域网内）]]></title>
+        <id>https://izumi-sora.github.io/post/zen-me-ba-zi-ji-de-linux-bi-ji-ben-bian-cheng-fu-wu-qi-ju-yu-wang-nei/</id>
+        <link href="https://izumi-sora.github.io/post/zen-me-ba-zi-ji-de-linux-bi-ji-ben-bian-cheng-fu-wu-qi-ju-yu-wang-nei/">
+        </link>
+        <updated>2022-03-29T15:23:36.000Z</updated>
+        <content type="html"><![CDATA[<p>最近想一边在床上玩手机，一边控制自己的笔记本，所以就想把笔记本当作服务器，查了一下，果然可以</p>
+<p>1.linux上安装openssh-server</p>
+<pre><code>sudo apt install openssh-sever
+</code></pre>
+<p>如果失败了，请安装aptitdue</p>
+<pre><code>sudo apt install aptitude
+</code></pre>
+<p>然后根据提示卸载冲突的依赖并安装openssh-server<br>
+2.手机上安装termux，<br>
+这里是下载链接 https://f-droid.org/en/packages/com.termux/<br>
+安装完成后。<br>
+打开termux，先根据提示更新软件</p>
+<pre><code>pkg upgrade
+</code></pre>
+<p>安装openssh</p>
+<pre><code>pkg install openssh
+</code></pre>
+<p>3.进行远程控制<br>
+ssh的使用方法是</p>
+<pre><code>ssh 用户名@ip地址
+</code></pre>
+<p>不会有人不知道自己的用户名把，打开终端@前面的就ifconfig是你的用户名，<br>
+当然，你也可以直接用root这个管理员名字，做用户名，好处是不用动不动就要输入sudo</p>
+<p>ip地址，可以在ubuntu终端上输入</p>
+<pre><code>ifconfig | grep inet
+</code></pre>
+<p>inet 后面的是ipv4地址 （请不要输入127.0.0.1，那是本地地址）<br>
+inet6 后面的是ipv6地址（请不要输入::1，那是本地地址）</p>
+<p>然后怎么做知道了吗？输入之后，按完确认建，会要求你输入yes，然后是你linux的密码，<br>
+登陆成功，撒花💐</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[我在ubuntu20.04上推荐安装的软件列表]]></title>
         <id>https://izumi-sora.github.io/post/wo-zai-ubuntu-shang-tui-jian-an-zhuang-de-ruan-jian-lie-biao/</id>
@@ -55,14 +93,15 @@ gnome-extensions prefs gsconnect@andyholmes.github.io</p>
         <link href="https://izumi-sora.github.io/post/ubuntu-he-shou-ji-jian-qie-ban-tong-bu/">
         </link>
         <updated>2022-03-28T05:40:27.000Z</updated>
-        <content type="html"><![CDATA[<p>1.安装软件</p>
+        <content type="html"><![CDATA[<p>1.安装软件,手机安装软件KDE Connect</p>
 <pre><code>sudo apt install gnome-shell-extension-gsconnect 
 </code></pre>
 <p>2.打开图形界面设置</p>
 <pre><code>gnome-extensions enable gsconnect@andyholmes.github.io 
 gnome-extensions prefs gsconnect@andyholmes.github.io   
 </code></pre>
-<p><img src="https://izumi-sora.github.io/post-images/1648448325822.png" alt="" loading="lazy"><br>
+<p>注意：需要在同一局域网下连接<br>
+<img src="https://izumi-sora.github.io/post-images/1648448325822.png" alt="" loading="lazy"><br>
 <img src="https://izumi-sora.github.io/post-images/1648448335189.png" alt="" loading="lazy"><br>
 <img src="https://izumi-sora.github.io/post-images/1648448342856.png" alt="" loading="lazy"></p>
 ]]></content>
@@ -255,38 +294,6 @@ deb http://deb.debian.org/debian bullseye main contrib non-free</p>
 <!-- more -->
 <!-- more -->
 <pre><code>ubuntu20.04直接安装</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://izumi-sora.github.io/post/hello-gridea/</id>
-        <link href="https://izumi-sora.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>
