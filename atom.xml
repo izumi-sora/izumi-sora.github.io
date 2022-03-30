@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://izumi-sora.github.io</id>
     <title>izumi的记事本</title>
-    <updated>2022-03-29T15:53:19.969Z</updated>
+    <updated>2022-03-30T10:16:01.375Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://izumi-sora.github.io"/>
     <link rel="self" href="https://izumi-sora.github.io/atom.xml"/>
@@ -10,6 +10,65 @@
     <logo>https://izumi-sora.github.io/images/avatar.png</logo>
     <icon>https://izumi-sora.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, izumi的记事本</rights>
+    <entry>
+        <title type="html"><![CDATA[debian 用户无法使用sudo，解决方法]]></title>
+        <id>https://izumi-sora.github.io/post/debian-yong-hu-wu-fa-shi-yong-sudojie-jue-fang-fa/</id>
+        <link href="https://izumi-sora.github.io/post/debian-yong-hu-wu-fa-shi-yong-sudojie-jue-fang-fa/">
+        </link>
+        <updated>2022-03-30T09:07:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>ubuntu用户安装后，默认就可以获得sudo权限，然而debian用户就没有这么幸运了，必须手动获取sudo权限，<br>
+1.首先要打开终端 terminal，<br>
+方法是如图</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>ubuntu用户安装后，默认就可以获得sudo权限，然而debian用户就没有这么幸运了，必须手动获取sudo权限，<br>
+1.首先要打开终端 terminal，<br>
+方法是如图</p>
+<!-- more -->
+<p><img src="https://izumi-sora.github.io/post-images/1648631507096.png" alt="gnome桌面" loading="lazy"><br>
+如果是KDE桌面，终端名称会是kon啥啥，具体忘了，<br>
+2.输入命令，登陆root账号<br>
+打开终端后，debian是无法直接使用sudo命令，需要先使用登陆root账号获得权限，当然，也可以不获得此权限，以后操作直接使用root帐号进行，还能节省打sudo的时间<br>
+输入下面命令，登陆root账号，</p>
+<pre><code>su
+</code></pre>
+<p>输入完su，不要傻等，按回车键，然后输入密码，输入的密码是隐形的，不会出现****之类的<br>
+<img src="https://izumi-sora.github.io/post-images/1648632180867.png" alt="" loading="lazy"><br>
+虽然啰嗦，但输入完密码，还请记得按回车键确认，然后就恭喜及进入root账号，<br>
+在该账号下可以直接省略sudo，安装软件，执行命令</p>
+<pre><code>apt install vim
+</code></pre>
+<p>这样就可以安装vim应用<br>
+3.让自己的账号，获得sudo权限<br>
+输入</p>
+<pre><code>vim /etc/sudoers
+</code></pre>
+<p>如果是gnome桌面，建议gedit /etc/sudoers （用过linux才知道图形界面的好）<br>
+按回车键，进入下面界面<br>
+<img src="https://izumi-sora.github.io/post-images/1648633205238.png" alt="" loading="lazy"><br>
+然后照猫画虎，先用英文输入法按 i 键进入输入模式再输入<br>
+root    ALL=(ALL:ALL) ALL</p>
+<pre><code>你的用户名   ALL=(ALL:ALL) ALL
+</code></pre>
+<p>然后按esc键退出输入模式，再按:wq!保存修改（想念图形界面的好）<br>
+这样你的自己的用户名也具有sudo权限了<br>
+可以输入exit，退出root账号<br>
+4.测试<br>
+安装软件可以通过终端,来安装vlc视频播放器</p>
+<pre><code>sudo apt install vlc
+</code></pre>
+<p>也可以直接使用应用商店，安装</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[英语学习的经验总结]]></title>
+        <id>https://izumi-sora.github.io/post/ying-yu-xue-xi-de-jing-yan-zong-jie/</id>
+        <link href="https://izumi-sora.github.io/post/ying-yu-xue-xi-de-jing-yan-zong-jie/">
+        </link>
+        <updated>2022-03-29T19:44:37.000Z</updated>
+        <content type="html"><![CDATA[<p>尽量去使用英语，<br>
+比如：把ubuntu设置英文界面，并且少用中文输入法，虽然这会让浏览和搜索速度大幅度下降，但这样的牺牲是值得的。（当然少用不代表不用）</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[怎么把自己的linux笔记本变成服务器（局域网内）]]></title>
         <id>https://izumi-sora.github.io/post/zen-me-ba-zi-ji-de-linux-bi-ji-ben-bian-cheng-fu-wu-qi-ju-yu-wang-nei/</id>
@@ -47,8 +106,8 @@
 ssh的使用方法是</p>
 <pre><code>ssh 用户名@ip地址
 </code></pre>
-<p>不会有人不知道自己的用户名把，打开终端@前面的就ifconfig是你的用户名，<br>
-当然，你也可以直接用root这个管理员名字，做用户名，好处是不用动不动就要输入sudo</p>
+<p>不会有人不知道自己的用户名把，打开终端@前面的就是你的用户名，<br>
+当然，你也可以直接用root这个管理员名字做用户名，好处是不用动不动就要输入sudo</p>
 <p>ip地址，可以在ubuntu终端上输入</p>
 <pre><code>ifconfig | grep inet
 </code></pre>
@@ -271,39 +330,6 @@ deb http://security.debian.org/debian-security/ bullseye-security main contrib n
 <!-- more -->
 <p>无用，只需要一个就够了其他的浪费<br>
 deb http://deb.debian.org/debian bullseye main contrib non-free</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[debian 升级后gnome的任务栏怎么调回左边]]></title>
-        <id>https://izumi-sora.github.io/post/debian-sheng-ji-hou-gnome-de-ren-wu-lan-zen-me-diao-hui-zuo-bian/</id>
-        <link href="https://izumi-sora.github.io/post/debian-sheng-ji-hou-gnome-de-ren-wu-lan-zen-me-diao-hui-zuo-bian/">
-        </link>
-        <updated>2022-03-02T23:43:02.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<p>没有解决问题的一般方法，我目前只知道通过插件来解决这个问题，安装方法</p>
-<pre><code>sudo apt install gnome-shell-extension-vertical-overview
-</code></pre>
-<p>然后</p>
-<pre><code>gnome-shell-extension-prefs
-</code></pre>
-<p>找到vertical-overview打开它，完事<br>
-<img src="https://izumi-sora.github.io/post-images/1646266257529.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[linux 怎么安装Gridea]]></title>
-        <id>https://izumi-sora.github.io/post/linux-zen-me-an-zhuang-gridea/</id>
-        <link href="https://izumi-sora.github.io/post/linux-zen-me-an-zhuang-gridea/">
-        </link>
-        <updated>2022-03-02T12:41:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>真的不知道之前gridea是怎么安装的，今天要重新安装gridea，结果发现apt，aptitde和右键通过图形界面都不能安装，幸好解压包之后发现data文件内的文件和linux根目录下的opt和usr文件一样，还说什么呢？直接复制粘贴，完事<br>
-之前用dpkg安装虽然能安装上，但是如果执行 sudo apt --fix-broken install ，安装的文件就会被删除，但可以保留配置信息，所以如果担心复制粘贴导致缺少某些文件，可以先dpkg安装在卸载，然后手动安装</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>真的不知道之前gridea是怎么安装的，今天要重新安装gridea，结果发现apt，aptitde和右键通过图形界面都不能安装，幸好解压包之后发现data文件内的文件和linux根目录下的opt和usr文件一样，还说什么呢？直接复制粘贴，完事<br>
-之前用dpkg安装虽然能安装上，但是如果执行 sudo apt --fix-broken install ，安装的文件就会被删除，但可以保留配置信息，所以如果担心复制粘贴导致缺少某些文件，可以先dpkg安装在卸载，然后手动安装</p>
-<!-- more -->
-<!-- more -->
-<pre><code>ubuntu20.04直接安装</code></pre>
 ]]></content>
     </entry>
 </feed>

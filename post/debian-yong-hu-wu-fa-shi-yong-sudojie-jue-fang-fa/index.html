@@ -2,19 +2,23 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>linux桌面要注意备份的个人资料 | izumi的记事本</title>
+<title>debian 用户无法使用sudo，解决方法 | izumi的记事本</title>
 <link rel="shortcut icon" href="https://izumi-sora.github.io/favicon.ico?v=1648634028244">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://izumi-sora.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="linux桌面要注意备份的个人资料 | izumi的记事本 - Atom Feed" href="https://izumi-sora.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="debian 用户无法使用sudo，解决方法 | izumi的记事本 - Atom Feed" href="https://izumi-sora.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="1.帐号密码  不会有人在换系统的时候不去想想自己有没有忘记自己的密码吧，哭
-2.个性化配置文件，比如.inputrc .bash_history 输入法的个人数据，
-3家目录，软件再装，家没了不好重建，最好的解决办法就是在删除之前备份整个..." />
-    <meta name="keywords" content="linux" />
+    <meta name="description" content="ubuntu用户安装后，默认就可以获得sudo权限，然而debian用户就没有这么幸运了，必须手动获取sudo权限，
+1.首先要打开终端 terminal，
+方法是如图
+
+
+如果是KDE桌面，终端名称会是kon啥啥，具体忘了，
+2.输入命令..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -76,27 +80,57 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              linux桌面要注意备份的个人资料
+              debian 用户无法使用sudo，解决方法
             </h2>
             <div class="post-info">
               <span>
-                2022-03-13
+                2022-03-30
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
-              
-                <a href="https://izumi-sora.github.io/tag/Lnr1_ehn6/" class="post-tag">
-                  # linux
-                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>1.帐号密码  不会有人在换系统的时候不去想想自己有没有忘记自己的密码吧，哭<br>
-2.个性化配置文件，比如.inputrc .bash_history 输入法的个人数据，<br>
-3家目录，软件再装，家没了不好重建，最好的解决办法就是在删除之前备份整个家目录</p>
+                <p>ubuntu用户安装后，默认就可以获得sudo权限，然而debian用户就没有这么幸运了，必须手动获取sudo权限，<br>
+1.首先要打开终端 terminal，<br>
+方法是如图</p>
+<!-- more -->
+<p><img src="https://izumi-sora.github.io/post-images/1648631507096.png" alt="gnome桌面" loading="lazy"><br>
+如果是KDE桌面，终端名称会是kon啥啥，具体忘了，<br>
+2.输入命令，登陆root账号<br>
+打开终端后，debian是无法直接使用sudo命令，需要先使用登陆root账号获得权限，当然，也可以不获得此权限，以后操作直接使用root帐号进行，还能节省打sudo的时间<br>
+输入下面命令，登陆root账号，</p>
+<pre><code>su
+</code></pre>
+<p>输入完su，不要傻等，按回车键，然后输入密码，输入的密码是隐形的，不会出现****之类的<br>
+<img src="https://izumi-sora.github.io/post-images/1648632180867.png" alt="" loading="lazy"><br>
+虽然啰嗦，但输入完密码，还请记得按回车键确认，然后就恭喜及进入root账号，<br>
+在该账号下可以直接省略sudo，安装软件，执行命令</p>
+<pre><code>apt install vim
+</code></pre>
+<p>这样就可以安装vim应用<br>
+3.让自己的账号，获得sudo权限<br>
+输入</p>
+<pre><code>vim /etc/sudoers
+</code></pre>
+<p>如果是gnome桌面，建议gedit /etc/sudoers （用过linux才知道图形界面的好）<br>
+按回车键，进入下面界面<br>
+<img src="https://izumi-sora.github.io/post-images/1648633205238.png" alt="" loading="lazy"><br>
+然后照猫画虎，先用英文输入法按 i 键进入输入模式再输入<br>
+root    ALL=(ALL:ALL) ALL</p>
+<pre><code>你的用户名   ALL=(ALL:ALL) ALL
+</code></pre>
+<p>然后按esc键退出输入模式，再按:wq!保存修改（想念图形界面的好）<br>
+这样你的自己的用户名也具有sudo权限了<br>
+可以输入exit，退出root账号<br>
+4.测试<br>
+安装软件可以通过终端,来安装vlc视频播放器</p>
+<pre><code>sudo apt install vlc
+</code></pre>
+<p>也可以直接使用应用商店，安装</p>
 
               </div>
               <div class="toc-container">
@@ -109,9 +143,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://izumi-sora.github.io/post/you-yong-hui-ubuntu-liao/">
+            <a href="https://izumi-sora.github.io/post/ying-yu-xue-xi-de-jing-yan-zong-jie/">
               <h3 class="post-title">
-                又用回ubuntu了，
+                英语学习的经验总结
               </h3>
             </a>
           </div>
